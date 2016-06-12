@@ -2,11 +2,18 @@
 
 `webutil` provides [Go](https://golang.org/) functions that operate at a level
 better matching the level that I'm working at when I'm using JSON API's and
-scraping the web. Like a function that returns a document as a `[]byte` where
-404 is an error. Or a function that returns a page's body parsed by
-[`net/html`](https://godoc.org/golang.org/x/net/html) and ready for working
-over with [Cascadia](https://github.com/andybalholm/cascadia) and some stuff
-for that.
+scraping the web.
+
+## Features
+
+* `GET` a `[]byte`. 404, etc. are an error.
+* Same, but return an io.ReadCloser.
+* Same, but parse with [`net/html`](https://godoc.org/golang.org/x/net/html)
+    and return the html.Node.
+    Useful for using [Cascadia](https://github.com/andybalholm/cascadia) to
+    extract parts.
+* Get text from an html.Node.
+* Walk an html.Node.
 
 ## Usage
 
