@@ -22,3 +22,14 @@ func Text(n *html.Node) string {
 	})
 	return string(buf)
 }
+
+// Attr returns the value of the first attribute named name and a boolean
+// indicating whether any was found.
+func Attr(n *html.Node, name string) (string, bool) {
+	for _, attr := range n.Attr {
+		if attr.Key == name {
+			return attr.Val, true
+		}
+	}
+	return "", false
+}
